@@ -1,0 +1,10 @@
+Python binding to the X Window System protocol via libxcb.
+
+These cffi-based bindings are a drop-in replacement for xpyb and
+address many its shortcomings. Notable features:
+
+* Supports 27 of the 29 X extensions (exceptions are xkb and xprint).
+* Support for Python 2.7, 3 and PyPy.
+* Numerous enhancements on top of xpyb's API.
+
+WWW: http://xcb.freedesktop.org/
