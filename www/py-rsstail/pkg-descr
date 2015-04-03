@@ -1,0 +1,5 @@
+Rsstail is a command-line syndication feed monitor with behaviour similar to
+tail -f. Rsstail (Python/feedparser) is inspired by rsstail (C/libmrss), but
+provides more customizable output formatting and additional features.
+
+WWW: http://python-rsstail.readthedocs.org/en/latest/
