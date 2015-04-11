@@ -1,0 +1,38 @@
+#!/bin/sh
+
+# $FreeBSD:
+#
+# PROVIDE: scanbd
+# REQUIRE: LOGIN
+# KEYWORD: shutdown
+#
+# Add the following line to /etc/rc.conf[.local] to enable scanbd:
+#	scanbd_enable="YES"
+
+. /etc/rc.subr
+
+name=scanbd
+rcvar=scanbd_enable
+pidfile="/var/run/${name}.pid"
+
+load_rc_config scanbd
+
+: ${scanbd_enable:="NO"}
+#: ${scanbd_uid:="saned"}
+: ${scanbd_sane_config_dir:=/usr/local/etc/scanbd}
+
+export SANE_CONFIG_DIR=/usr/local/etc/scanbd/sane.d
+command="/usr/local/sbin/scanbd"
+#start_cmd="${name}"
+#start_precmd=saned_prestart
+
+# saned_prestart()
+# {
+# 	case "${saned_flags}" in
+# 	*-a\ *) err 1 'saned_flags includes the -a option. Please use saned_uid instead' ;;
+# 	esac
+# }
+
+#command_args="-a $saned_uid"
+
+run_rc_command "$1"
